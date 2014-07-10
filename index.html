@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Korpusanalyse im PolMine-Framework</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Korpusanalyse im PolMine-Framework">
+  <meta name="author" content="Andreas Blaette (andreas.blaette@uni-due.de)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Korpusanalyse im PolMine-Framework</h1>
+    <h2>Einführung in das R-Paket 'driller'</h2>
+    <p>Andreas Blaette (andreas.blaette@uni-due.de)<br/>Universität Duisburg-Essen</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Überblick</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Das R-Paket im PolMine-Framework</li>
+<li>Zentrale Funktionen</li>
+<li>Methoden</li>
+<li>Hilfe</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>PolMine-Framework und R-Paket &#39;driller&#39;</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Ausgangslage - Problemstellung - Zielsetzung</h1>
+
+<ul>
+<li>Für die Korpusanalyse gibt es eine Reihe von Anwendungen:
+
+<ul>
+<li>erste Generation (WordSmith, Lexico3)</li>
+<li>Server-basierte (CQPweb, TXM)</li>
+</ul></li>
+<li>Diese Anwendungen sind geschlossene Systeme, die der Methodenentwicklung noch zu viele Grenzen setzen. Für die Erprobung neuer Verfahren führt bislang kein Weg an der Nutzung von Programmiersprachen vorbei.
+Gut entwickelte Bibliotheken und Tools sind u.a.:
+
+<ul>
+<li>CQP</li>
+<li>NLTK</li>
+<li>tm, lsa, topicmodels</li>
+</ul></li>
+<li>Eine produktive Arbeit mit Korpora sollte einen interaktiven Analysprozess auch mit textstatistischen Verfahren ermöglichen und durchgängig den Weg zurück zum Text offen halten. Weil dies die existierenden Tools nicht leisten können, verbindet das PolMine-Framework für Korpusanalyse existierende Tools und bündelt diese in einem R-Paket &#39;driller&#39;</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Design des PolMine-Frameworks</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Architektur</h1>
+
+<p>Im Kern verbindet das Framework die Corpus Workbench (CWB) als System für die Korpusverwaltung mit der Nutzung von R für die Datenauswertung. Für die Korpusaufbereitung wird Python genutzt.</p>
+
+<h1>Zielsetzungen</h1>
+
+<ul>
+<li>Portabilität: </li>
+<li>Performanz</li>
+<li>Nutzerfreundlichkeit (&quot;usability&quot;)</li>
+<li>Interaktvität </li>
+<li>Quelloffenheit</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Wie finde ich Hilfe?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Hilfe zu einer Funktion erhält in der typischen R-Weise, durch ein Fragezeichen vor der Funktion, zu der man Hilfe benötigt</li>
+<li>Hilfe zu Methoden (Erläuterung folgt!) gibt es wie folgt.</li>
+<li>Hilfe zu Klassen</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Wie kann ich den &#39;driller&#39; updaten?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Der &#39;driller&#39; wird über GitHub zur Verfügung gestellt. Die jeweils neueste Version kann in R über das Paket &#39;devtools&#39; installiert werden. Wenn dieses noch nicht installiert ist:</li>
+</ul>
+
+<pre><code class="r">install.packages(&quot;devtools&quot;)
+</code></pre>
+
+<ul>
+<li>Um die neueste &#39;driller&#39;-Version zu installieren, muss man zunächst das &#39;devtools&#39;-Package laden. Dann kann das Paket von GitHub geladen und installiert werden:</li>
+</ul>
+
+<pre><code class="r">library(devtools)
+install_github(&quot;ablaette/driller&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Laden von Korpora</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Partitionen: Grundlagen</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Fast jede Funktion des Pakets setzt die Definition eines Subkorpus bzw. eine &#39;Partition&#39; voraus.</p></li>
+<li><p>Für die Definition von Partitionen werden die Metadaten genutzt, die in CWB-Korpora in den sog. s-Attributen (strukturellen Attributen) gespeichert werden. Diese werden an die Funktion &#39;partition&#39; mit einer Liste übergeben. So lässt sich beispielsweise eine Partition der Reden im Deutschen Bundestag des Jahres 2010 anlegen:</p></li>
+</ul>
+
+<pre><code class="r">bt2010 &lt;- partition(corpus=&quot;PLPRTXT&quot;, def=list(text_year=&quot;2010&quot;, text_type=&quot;speech&quot;))
+</code></pre>
+
+<ul>
+<li>Die Liste kann die Definition beliebig vieler s-Attribute enthalten. Welche s-Attribute es in einem Korpus gibt, kann man mit der Hilfsfunktion &#39;sAttributes&#39; ermitteln:</li>
+</ul>
+
+<pre><code class="r">sAttributes(&quot;PLPRTXT&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Partitionen: Flexibilität</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>In der Liste, die eine Partition definiert, können auch mehrere Werte übergeben werden. Um etwa Korpora von Regierungs- und Oppositionsparteien im 17. Bundestag (2009-2013) zu erstellen:</li>
+</ul>
+
+<pre><code class="r">bt17gov &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, text_party=c(&quot;CDU_CSU&quot;, &quot;FDP&quot;)))
+bt17opp &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, text_party=c(&quot;SPD&quot;, &quot;DIE_LINKE&quot;, &quot;B90_DIE_GRUENEN&quot;)))
+</code></pre>
+
+<ul>
+<li>Die Voreinstellung der &#39;partition&#39;-Funktion ist, dass die übergebenen Werte den s-Attributen exakt entsprechen müssen, setzt man den Parameter &#39;method&#39; auf &#39;grep&#39;, ist die Nutzung regulärer Ausdrücke möglich. Um etwa eine Partition mit den Reden eines Monats anzulegen:</li>
+</ul>
+
+<pre><code class="r">bt2010jan &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_date=&quot;2010-01-.*&quot;), method=&quot;grep&quot;)
+</code></pre>
+
+<ul>
+<li>Um zu ermitteln, welche Daten in einem Korpus in einem definierten Zeitraum auftreten, kann man die Hilfsfunktion datesPeriod nutzen. Diese Werte können dann an die &#39;partition&#39; Funktion übergeben werden:</li>
+</ul>
+
+<pre><code class="r">postFukushima &lt;- datesRange(&quot;PLPRTXT&quot;, c(&quot;&quot;, &quot;&quot;))
+bt2011postFukushima &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_date=postFukushima))
+</code></pre>
+
+<hr>
+
+<h2>Acknowledgements</h2>
+
+<ul>
+<li>CWB</li>
+<li>rcqp</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9">
+<hgroup>
+  
+</hgroup>
+<article class = 'flexbox vcenter'>
+<p>This is just sample text</p>
+
+</article>
+<!-- Presenter Notes -->
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Überblick'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='PolMine-Framework und R-Paket &#39;driller&#39;'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Design des PolMine-Frameworks'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Wie finde ich Hilfe?'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Wie kann ich den &#39;driller&#39; updaten?'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Laden von Korpora'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Partitionen: Grundlagen'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Partitionen: Flexibilität'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title=''>
+         9
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
