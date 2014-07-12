@@ -41,106 +41,81 @@
     
 
     <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
+    <slide class="" id="slide-1" style="background:#F8F8F8;">
   <hgroup>
-    <h2>Überblick</h2>
-  </hgroup>
-  <article data-timings="">
-    <ol>
-<li>Das R-Paket im PolMine-Framework</li>
-<li>Zentrale Funktionen</li>
-<li>Methoden</li>
-<li>Hilfe</li>
-</ol>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>PolMine-Framework und R-Paket &#39;driller&#39;</h2>
-  </hgroup>
-  <article data-timings="">
-    <h1>Ausgangslage - Problemstellung - Zielsetzung</h1>
-
-<ul>
-<li>Für die Korpusanalyse gibt es eine Reihe von Anwendungen:
-
-<ul>
-<li>erste Generation (WordSmith, Lexico3)</li>
-<li>Server-basierte (CQPweb, TXM)</li>
-</ul></li>
-<li>Diese Anwendungen sind geschlossene Systeme, die der Methodenentwicklung noch zu viele Grenzen setzen. Für die Erprobung neuer Verfahren führt bislang kein Weg an der Nutzung von Programmiersprachen vorbei.
-Gut entwickelte Bibliotheken und Tools sind u.a.:
-
-<ul>
-<li>CQP</li>
-<li>NLTK</li>
-<li>tm, lsa, topicmodels</li>
-</ul></li>
-<li>Eine produktive Arbeit mit Korpora sollte einen interaktiven Analysprozess auch mit textstatistischen Verfahren ermöglichen und durchgängig den Weg zurück zum Text offen halten. Weil dies die existierenden Tools nicht leisten können, verbindet das PolMine-Framework für Korpusanalyse existierende Tools und bündelt diese in einem R-Paket &#39;driller&#39;</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Design des PolMine-Frameworks</h2>
+    <h2>Der &#39;driller&#39; im PolMine-Framework</h2>
   </hgroup>
   <article data-timings="">
     <h1>Architektur</h1>
 
-<p>Im Kern verbindet das Framework die Corpus Workbench (CWB) als System für die Korpusverwaltung mit der Nutzung von R für die Datenauswertung. Für die Korpusaufbereitung wird Python genutzt.</p>
+<p>Das <em>PolMine-Framework</em> verbindet die Corpus Workbench (CWB) als System für die Korpusverwaltung mit der Nutzung von R für die Datenauswertung. Für die Korpusaufbereitung werden überwiegend Python-Skripte genutzt, die in R-Pakete integriert werden.</p>
 
 <h1>Zielsetzungen</h1>
 
 <ul>
-<li>Portabilität: </li>
-<li>Performanz</li>
-<li>Nutzerfreundlichkeit (&quot;usability&quot;)</li>
-<li>Interaktvität </li>
-<li>Quelloffenheit</li>
+<li><em>Interaktvität</em>: Das Ziel ist ein interaktiver &quot;Dialog mit den Daten&quot;&quot;</li>
+<li><em>Performanz</em>: Schnelle Auswertungen, v.a. durch Nutzung der CWB als Backend</li>
+<li><em>Nutzerfreundlichkeit</em>: Im Sinne von &quot;usability&quot; keine prohibitiven Einstiegshürden </li>
+<li><em>Quelloffenheit</em>: Open Access für die Auswertungstools</li>
+<li><em>Portabilität</em>: Übertragbarkeit auf Max OS und Linux (auf Windows-System nur durch Virtualisierung)</li>
 </ul>
+
+<p>Das PolMine-Framework bietet keine fertigen Analysergebnisse, sondern einen Instrumentenkasten, der variabel auf der Basis verschiedener Komponenten Wege zur wissenschaftlichen Korpusanalyse eröffnet (daher &quot;Framework&quot;).</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-4" style="background:;">
+<slide class="" id="slide-2" style="background:#F8F8F8;">
   <hgroup>
     <h2>Wie finde ich Hilfe?</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Hilfe zu einer Funktion erhält in der typischen R-Weise, durch ein Fragezeichen vor der Funktion, zu der man Hilfe benötigt</li>
-<li>Hilfe zu Methoden (Erläuterung folgt!) gibt es wie folgt.</li>
-<li>Hilfe zu Klassen</li>
+<li>Diese Folien bieten lediglich eine Einführung. Um mehr über die Anwendung einzelner Funktionen zu erfahren, sollten die R-typischen Dokumentationen genutzt werden.</li>
+<li>Für das Paket stehen ein pdf mit der Dokumentation der einzelnen Funktionen zur Verfügung sowie eine &quot;Vignette&quot;</li>
+<li>Hilfe zu einer Funktion erhält man von der Kommandozeile aus:
+
+<ul>
+<li>für Funktionen mit einem vorangestellten Fragezeichen </li>
+<li>für Methoden mit dem Muster: &quot;method&quot;-Fragezeichen-Klasse-in Klammern: Methode</li>
+<li>für Klassen z.B. &quot;class&quot;-Fragezeichen-Klasse</li>
+</ul></li>
+</ul>
+
+<pre><code class="r">?partition # Aufruf der Dokumentation zur partition-Funktion
+method?partition(&quot;mail&quot;) # Hilfe zur mail-Methode für ein partition-Objekt
+class?partition # Hilfe zur partition-Klasse
+</code></pre>
+
+<ul>
+<li>Tip: Es lohnt sich oft, für ein Objekt mit &#39;is&#39; abzufragen, welcher Klasse es zugeordnet ist. </li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-5" style="background:;">
+<slide class="" id="slide-3" style="background:#F8F8F8;">
   <hgroup>
-    <h2>Wie kann ich den &#39;driller&#39; updaten?</h2>
+    <h2>Installation der aktuellen &#39;driller&#39;-Version</h2>
   </hgroup>
   <article data-timings="">
-    <ul>
-<li>Der &#39;driller&#39; wird über GitHub zur Verfügung gestellt. Die jeweils neueste Version kann in R über das Paket &#39;devtools&#39; installiert werden. Wenn dieses noch nicht installiert ist:</li>
-</ul>
-
-<pre><code class="r">install.packages(&quot;devtools&quot;)
-</code></pre>
+    <h1>Installation/Update im Terminal</h1>
 
 <ul>
+<li>Für Hartgesottene: Man kann das GitHub-Repositorium clonen und mit dem Ablauf R CMD build / R CMD INSTALL installieren.</li>
+</ul>
+
+<h1>Installation/Update mit &#39;devtools&#39;</h1>
+
+<ul>
+<li>Der &#39;driller&#39; wird über GitHub zur Verfügung gestellt. Die jeweils neueste Version kann in R über das Paket &#39;devtools&#39; installiert werden. Wenn dieses noch nicht installiert ist:</li>
 <li>Um die neueste &#39;driller&#39;-Version zu installieren, muss man zunächst das &#39;devtools&#39;-Package laden. Dann kann das Paket von GitHub geladen und installiert werden:</li>
 </ul>
 
-<pre><code class="r">library(devtools)
+<pre><code class="r">install.packages(&quot;devtools&quot;) # optional, falls devtools noch nicht installiert ist
+library(devtools)
 install_github(&quot;ablaette/driller&quot;)
 </code></pre>
 
@@ -148,31 +123,44 @@ install_github(&quot;ablaette/driller&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-6" style="background:;">
+<slide class="" id="slide-4" style="background:#F8F8F8;">
   <hgroup>
-    <h2>Laden von Korpora</h2>
+    <h2>Nachladen von Korpora</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li>Registrierte PolMine-Nutzer können diejenigen Korpora, die für sie auch über CQPweb verfügbar sind, importieren:</li>
+</ul>
+
+<pre><code class="r">driller:::.importPolMineCorpus(corpus=&quot;KORPUS&quot;, user=&quot;NUTZERNAME&quot;, pw=&quot;PASSWORT&quot;)
+</code></pre>
+
+<ul>
+<li>Damit es klappen kann, sind natürlich &quot;KORPUS&quot;, &quot;NUTZERNAME&quot; und &quot;PASSWORT&quot; jeweils passend zu ersetzen.</li>
+<li>Die registry-Datei für das Korpus und die CWB-Binärdateien werden als komprimiertes Archiv (.tar.gz) heruntergeladen, in die Ordner für CWB-Korpora verschoben und entpackt. Am Ende des Downloads erfolgt eine Abfrage, ob man das .tar.gz-Archiv behalten order löschen möchte.</li>
+<li>Die Erstellung eigener Korpora erfodert ansonsten gute Kenntnisse der Corpus Workbench und ihrer Importformate. Die eigene Korpusentwicklung ist damit natürlich nicht ausgeschlossen!</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-7" style="background:;">
+<slide class="" id="slide-5" style="background:#F8F8F8;">
   <hgroup>
     <h2>Partitionen: Grundlagen</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li><p>Fast jede Funktion des Pakets setzt die Definition eines Subkorpus bzw. eine &#39;Partition&#39; voraus.</p></li>
-<li><p>Für die Definition von Partitionen werden die Metadaten genutzt, die in CWB-Korpora in den sog. s-Attributen (strukturellen Attributen) gespeichert werden. Diese werden an die Funktion &#39;partition&#39; mit einer Liste übergeben. So lässt sich beispielsweise eine Partition der Reden im Deutschen Bundestag des Jahres 2010 anlegen:</p></li>
+<li><p>Fast jede Funktion oder Methode des &#39;driller&#39;-Pakets setzt die Definition eines Subkorpus bzw. eine &#39;Partition&#39; voraus.</p></li>
+<li><p>Für die Definition von Partitionen werden die Metadaten genutzt, die in CWB-Korpora in den sog. s-Attributen (strukturellen Attributen) gespeichert werden. Diese werden an die Funktion &#39;partition&#39; mit einer Liste übergeben.</p></li>
+<li><p>So lässt sich beispielsweise eine Partition der Reden im Deutschen Bundestag des Jahres 2010 anlegen:</p></li>
 </ul>
 
 <pre><code class="r">bt2010 &lt;- partition(corpus=&quot;PLPRTXT&quot;, def=list(text_year=&quot;2010&quot;, text_type=&quot;speech&quot;))
 </code></pre>
 
 <ul>
-<li>Die Liste kann die Definition beliebig vieler s-Attribute enthalten. Welche s-Attribute es in einem Korpus gibt, kann man mit der Hilfsfunktion &#39;sAttributes&#39; ermitteln:</li>
+<li>Die Liste kann die Definition beliebig vieler s-Attribute enthalten. Welche s-Attribute es in einem Korpus gibt, kann man übrigens mit der Hilfsfunktion &#39;sAttributes&#39; ermitteln:</li>
 </ul>
 
 <pre><code class="r">sAttributes(&quot;PLPRTXT&quot;)
@@ -182,21 +170,37 @@ install_github(&quot;ablaette/driller&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-8" style="background:;">
+<slide class="" id="slide-6" style="background:#F8F8F8;">
   <hgroup>
-    <h2>Partitionen: Flexibilität</h2>
+    <h2>Partitionen für diachrone Vergleiche</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>In der Liste, die eine Partition definiert, können auch mehrere Werte übergeben werden. Um etwa Korpora von Regierungs- und Oppositionsparteien im 17. Bundestag (2009-2013) zu erstellen:</li>
+<li>In der Liste, die eine Partition definiert, können auch mehrere Werte übergeben werden.</li>
+<li>Um etwa Korpora von Regierungs- und Oppositionsparteien im 17. Bundestag (2009-2013) zu erstellen:</li>
 </ul>
 
-<pre><code class="r">bt17gov &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, text_party=c(&quot;CDU_CSU&quot;, &quot;FDP&quot;)))
-bt17opp &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, text_party=c(&quot;SPD&quot;, &quot;DIE_LINKE&quot;, &quot;B90_DIE_GRUENEN&quot;)))
+<pre><code class="r">bt17gov &lt;- partition(
+  &quot;PLPRTXT&quot;,
+  def=list(text_lp=&quot;17&quot;, text_party=c(&quot;CDU_CSU&quot;, &quot;FDP&quot;))
+  )
+bt17opp &lt;- partition(
+  &quot;PLPRTXT&quot;,
+  def=list(text_lp=&quot;17&quot;, text_party=c(&quot;SPD&quot;, &quot;DIE_LINKE&quot;, &quot;B90_DIE_GRUENEN&quot;))
+  )
 </code></pre>
 
-<ul>
-<li>Die Voreinstellung der &#39;partition&#39;-Funktion ist, dass die übergebenen Werte den s-Attributen exakt entsprechen müssen, setzt man den Parameter &#39;method&#39; auf &#39;grep&#39;, ist die Nutzung regulärer Ausdrücke möglich. Um etwa eine Partition mit den Reden eines Monats anzulegen:</li>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Partitionen: Zeitscheiben</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Die Voreinstellung der &#39;partition&#39;-Funktion ist, dass die übergebenen Werte den s-Attributen exakt entsprechen müssen. Setzt man den Parameter &#39;method&#39; auf &#39;grep&#39;, ist die Nutzung regulärer Ausdrücke möglich. Um etwa eine Partition mit den Reden eines bestimmten Monats anzulegen:</li>
 </ul>
 
 <pre><code class="r">bt2010jan &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_date=&quot;2010-01-.*&quot;), method=&quot;grep&quot;)
@@ -206,89 +210,413 @@ bt17opp &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, te
 <li>Um zu ermitteln, welche Daten in einem Korpus in einem definierten Zeitraum auftreten, kann man die Hilfsfunktion datesPeriod nutzen. Diese Werte können dann an die &#39;partition&#39; Funktion übergeben werden:</li>
 </ul>
 
-<pre><code class="r">postFukushima &lt;- datesRange(&quot;PLPRTXT&quot;, c(&quot;&quot;, &quot;&quot;))
+<pre><code class="r">postFukushima &lt;- datesRange(&quot;PLPRTXT&quot;, c(&quot;2011-03-11&quot;, &quot;2011-12-31&quot;))
 bt2011postFukushima &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_date=postFukushima))
 </code></pre>
 
-<hr>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
 
-<h2>Acknowledgements</h2>
+<slide class="" id="slide-8" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Partitionen: Feintuning</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Als Voreinstellung werden mit dem Setup einer Partition Frequenzlisten für die p-Attribute &quot;word&quot; und &quot;lemma&quot; angelegt. Um das Setup zu beschleunigen, kann mit dem Parameter &#39;tf&#39; die Berechnung der Frequenzlisten eingeschränkt oder übersprungen werden (z.B. tf=&quot;word&quot;, tf=NULL).</li>
+<li>Einige Funktionen benötigen Metainformationen zu den Textabschnitten (&quot;strucs&quot;), die im partitionierten Korpus enthalten sind. Für welche Informationen dies verfügbar ist, wird mit dem Parameter &quot;meta&quot; gesteuert.</li>
+<li>Welche Ausprägungen eines s-Attributs im partitionierten Korpus auftreten, kann mit der Methode &quot;meta&quot; abgefragt werden. Mit folgendem Aufruf erhält man einen character vector mit den Daten, die in einer zuvor angelegten Partition mit den Plenarprotokollen der 17. Wahlperiode auftreten.</li>
+</ul>
+
+<pre><code class="r">meta(bt17, &quot;text_date&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>KWIC / Konkordanzen</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Einfache Suchbegriffe</h1>
 
 <ul>
-<li>CWB</li>
-<li>rcqp</li>
+<li>Das Wortumfeld eines Suchbegriffs kann mit der KWIC-Methode analysiert werden:</li>
+</ul>
+
+<pre><code class="r">kwic(bt17, &quot;Finanzkrise&quot;)
+kwic(bt17, &quot;Finanzkrise&quot;, meta=c(&quot;text_date&quot;, &quot;text_party&quot;))
+kwic(bt17, &quot;Finanzkrise&quot;, leftContext=20, rightContext=20)
+</code></pre>
+
+<ul>
+<li>Wenn zum linken und rechten Kontext oder zu den anzuzeigenden Metainformationen keine expliziten Angaben gemacht wedenn, nutzt kwic Voreinstellungen der globalen Liste &#39;drillingControls&#39;.</li>
+<li>Wie die Werte dort gesetzt sind kann mit &#39;controls()&#39; ermittelt werden. </li>
+<li>Die drillingControls geben auch vor, wie viele Konkordanzen jeweils angezeigt werden.</li>
 </ul>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-9">
-<hgroup>
-  
-</hgroup>
-<article class = 'flexbox vcenter'>
-<p>This is just sample text</p>
+<slide class="" id="slide-10" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>KWIC / Konkordanzen</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Nutzung der CQP-Abfragesyntax</h1>
 
-</article>
-<!-- Presenter Notes -->
+<ul>
+<li>Die Nutzung der CQP-Syntax ist möglich. Dafür muss der (syntaktisch korrekte) CQP-Query in einfache Anführungszeichen gesetzt werden:</li>
+</ul>
+
+<pre><code class="r">kwic(bt17, &#39;&quot;erfolgreiche&quot; &quot;Integration&quot;&#39;)
+kwic(bt17, &#39;&quot;[eE]urop.*&quot; &quot;Integration&quot;&#39;)
+kwic(bt17, &#39;&quot;[Mm]ensch.*&quot; []{0,10} &quot;Klimawandel&quot;&#39; )
+</code></pre>
+
+<ul>
+<li>Für eine Erläuterung der CQP-Syntax siehe die entsprechenden einschlägigen Tutorials.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
 </slide>
+
+<slide class="" id="slide-11" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Export von Konkordanzen</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Mit der mail-Methode kann man sich das Ergebnis einer KWIC-Analyse per Mail zuschicken:</li>
+</ul>
+
+<pre><code class="r">toSend &lt;- kwic(bt17, &#39;&quot;Postbote&quot;&#39;)
+mail(toSend, to=&quot;donald.duck@uni-due.de&quot;)
+</code></pre>
+
+<ul>
+<li>Der Versand erfolgt über den Email-Account &#39;polmine.sowi.uni-due.de&#39;. Dieser steht nur innerhalb des Netzes der Universität Duisburg-Essen zur Verfügung (bzw. Einwahl über VPN).</li>
+<li>Für Fortgeschrittene: Der genutzte Postausgangs-Server wird über die drillingControls definiert, so dass eine andere Einstellung möglich ist.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Kontextanalysen / Berechnung von Kollokationen</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Innerhalb einer Partition kann mit der context-Methode der Kontext eines Queries mit dem Verfahren zur Berechnung von Kollokationen analysiert werden:</li>
+</ul>
+
+<pre><code class="r">fin &lt;- context(bt17, &quot;Finanzkrise&quot;)
+</code></pre>
+
+<ul>
+<li>Auch für context-Objekte kann die kwic-Methode angewendet werden.</li>
+<li><p>Die Qualität des Ergebnisses hängt entscheidende von den eingestellten Parametern ab:</p>
+
+<ul>
+<li>leftContext / rightContext: Definition des untersuchten linken bzw. rechten Wortumfelds</li>
+<li>pAttribute: Definition des p-Attributes, auf das sich die Analyse stützt (&quot;word&quot;/&quot;lemma&quot;)</li>
+<li>stopwords: Ausschluss von Konkordanzen aus Analyse, wenn ein bestimmtes Stopwort im Wortumfeld auftritt</li>
+<li>posFilter: Beschränkung der Analyse auf Wörter einer bestimmten Wortart (z.B. Adjektive &quot;ADJA&quot;, oder Nomen &quot;NN&quot;)</li>
+</ul></li>
+<li><p>Siehe weiterführend die Dokumentation der context-Methode!</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Kontextanalyse II: Methoden für context-Objekte</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Die Ergbnistabelle eines context-Objekts kann mit der trim-Methode entsprechend verschiedenen analytischen Erfordernissen zugeschnitten werden.
+
+<ul>
+<li>minSignificance: Mindestwert für Signifikanz des statistischen Tests</li>
+<li>minFrequency: Mindestwert für Häufigkeit des Wortes im Wortumfeld</li>
+<li>maxRank: Maximale Zahl der Treffer</li>
+<li>posFilter: Beschränkung der Statistik auf definierte Wortarten</li>
+</ul></li>
+<li>Versand der Analyseergebnisse als Tabelle mit mail-Methode</li>
+<li>Beispiel:</li>
+</ul>
+
+<pre><code class="r">bt17 &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_type=&quot;speech&quot;, text_speaker=&quot;Angela Merkel&quot;))
+fin &lt;- context(bt17, &quot;Finanzkrise&quot;, leftContext=10, rightContext=10)
+finTrimmed &lt;- trim(
+  fin, minSignificance=3.85, minFrequency=3, maxRank=100, posFilter=c(&quot;ADJA&quot;, &quot;NN&quot;))
+mail(finTrimmed, to=&quot;donald.duck@uni-due.de&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-14" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Schlagwortberechnung: keyness-Methode</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Schlagwortberchnungen beruhen auf dem Vergleich zweier Korpora bzw. zweier Partitionen. Sie führen zu einer Ermittlung des statistisch signifikanten Vokabulars in einem Untersuchungskorpus im Vergleich zu einem Vergleichs- bzw. Referenzkorpus.</li>
+<li>Das Ergebnis hängt daher entscheidend von der Wahl von Untersuchungs- und Referenzpartition ab, die argumentativ zu begründen ist.</li>
+<li>Schlagwortberechnungen erfolgen mit der keyness-Methode:</li>
+</ul>
+
+<pre><code class="r">merkel &lt;- partition(
+  &quot;PLPRTXT&quot;,
+  def=list(text_speaker=&quot;Angela Merkel&quot;, text_type=&quot;speech&quot;, text_lp=&quot;17&quot;)
+  )
+bt17 &lt;- partition(&quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;, text_type=&quot;speech&quot;))
+merkelSprech &lt;- keyness(merkel, bt17)
+</code></pre>
+
+<ul>
+<li>Für das Ergebnis einer Schlagwortberechnung stehen grundsätzlich die gleichen Methoden zur Verfügung wie für context-Objekte (trim, enrich, mail).</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Cluster von Partitionen mit partitionCluster</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Anlegen verschiedener Partitionen mit partitionCluster in einem Rutsch.</li>
+<li>Das s-Attribut, das variieren soll, wird mit einer Liste an den Parameter &#39;var&#39; übergeben.</li>
+<li>Wenn als Wert von &#39;var&#39; &#39;NULL&#39; angegeben wird, ermittelt partitionCluster alle auftretenden Ausprägungen und legt für diese Partitionen an. Es kann spezifiziert werden, welche Partitionen genau angelegt werden sollen.</li>
+</ul>
+
+<pre><code class="r">bt17parties &lt;- partitionCluster(
+  &quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;), var=list(text_party=NULL))
+bt17parties &lt;- partitionCluster(
+  &quot;PLPRTXT&quot;, def=list(text_lp=&quot;17&quot;), var=list(text_party=c(&quot;CDU_CSU&quot;, &quot;SPD&quot;, &quot;FDP&quot;)))
+</code></pre>
+
+<ul>
+<li>Die Berechnung kann durch Setzen des Parameters mc (für &#39;multicore&#39;) auf &#39;TRUE&#39; (also mc=TRUE) durch Parallelisierung beschleunigt werden.</li>
+<li> Für partitionCluster-Objekte stehen die gleichen Funktionen zur Verfügung wie für partition Objekte (enrich, trim). </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Vom partitionCluster zu Term-Dokument-Matrixen</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Die partitionCluster-Funktion gibt ein Objekt der Klasse &#39;partitionCluster&#39; zurück.</li>
+<li>Dieses kann mit der Methode &#39;as.TermDocumentMatrix&#39; in eine Term-Dokument-Matrix umgewandelt werden (auch: as.DocumentTermMatrix).</li>
+<li>Diese Matrixen sind die Grundlage für viele &quot;höhere&quot; textstatistische Verfahren (z.B. topic models).</li>
+<li>Man erhält ein Objekt der Klasse &#39;TermDocumentMatrix&#39; des R-Pakets &#39;tm&#39;.</li>
+<li>Mit as.matrix kann ein &#39;TermDocumentMatrix&#39;-Objekt in eine &#39;normale&#39; Matrix umgewandelt werden.</li>
+<li>Zu beachten: Wenn ein partitionCluster viele Partitionen umfasst, treten mit der normalen R-Matrix unter Umständen Speicherplatzprobleme auf. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:#F8F8F8;">
+  <hgroup>
+    <h2>Übersicht: Methoden und Objekte</h2>
+  </hgroup>
+  <article data-timings="">
+    <table><thead>
+<tr>
+<th>Methode/Objekt</th>
+<th>partition</th>
+<th>partitionCluster</th>
+<th>context</th>
+<th>keyness</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trim</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>enrich</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mail</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>html</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Kontakt</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Prof. Dr. Andreas Blätte</h1>
+
+<p>Juniorprofessur für Politikwissenschaft der Stiftung Zukunft NRW</p>
+
+<p>Institut für Politikwissenschaft</p>
+
+<p>Universität Duisburg-Essen</p>
+
+<p>Email:   <a href="mailto:andreas.blaette@uni-due.de">andreas.blaette@uni-due.de</a></p>
+
+<p>Lotharstr. 57 (Gebäude LS)
+47051 Duisburg</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
     <slide class="backdrop"></slide>
   </slides>
   <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Überblick'>
+        data-slide=1 title='Der &#39;driller&#39; im PolMine-Framework'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='PolMine-Framework und R-Paket &#39;driller&#39;'>
+        data-slide=2 title='Wie finde ich Hilfe?'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Design des PolMine-Frameworks'>
+        data-slide=3 title='Installation der aktuellen &#39;driller&#39;-Version'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Wie finde ich Hilfe?'>
+        data-slide=4 title='Nachladen von Korpora'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Wie kann ich den &#39;driller&#39; updaten?'>
+        data-slide=5 title='Partitionen: Grundlagen'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Laden von Korpora'>
+        data-slide=6 title='Partitionen für diachrone Vergleiche'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Partitionen: Grundlagen'>
+        data-slide=7 title='Partitionen: Zeitscheiben'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Partitionen: Flexibilität'>
+        data-slide=8 title='Partitionen: Feintuning'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title=''>
+        data-slide=9 title='KWIC / Konkordanzen'>
          9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='KWIC / Konkordanzen'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Export von Konkordanzen'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Kontextanalysen / Berechnung von Kollokationen'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Kontextanalyse II: Methoden für context-Objekte'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Schlagwortberechnung: keyness-Methode'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Cluster von Partitionen mit partitionCluster'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Vom partitionCluster zu Term-Dokument-Matrixen'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Übersicht: Methoden und Objekte'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Kontakt'>
+         18
       </a>
     </li>
   </ul>
